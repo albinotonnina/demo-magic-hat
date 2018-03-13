@@ -1,0 +1,61 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.App {
+  text-align: center;
+  height: 100vh;
+  background: #efefef;
+  background: linear-gradient(141deg, #a1ddeb 0%, #caebf2 51%, #89e4f8 75%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.App-logo {
+  animation: spin 16s linear 0s infinite normal;
+  height: 180px;
+  cursor: pointer;
+  fill: #ff383f;
+  transition: fill 300ms ease-out;
+  animation-play-state: paused;
+}
+
+.App-logo:hover {
+  fill: #61dafb;
+  animation-play-state: running;
+}
+
+.App-header {
+  animation: spin 8s linear 0s infinite normal;
+  height: 180px;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+.githubCorner {
+  z-index: 999999;
+}
+
+@media (max-width: 1024px) {
+  .githubCorner {
+    display: none;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
