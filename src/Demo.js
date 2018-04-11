@@ -17,7 +17,7 @@ export default class Demo extends Component {
     }
     const Page = id ? Components[id] : Components.Users
 
-    return <Page {...extraProps} {...state} frames={actions} />
+    return <Page {...extraProps} {...state} actions={actions} />
   }
 
   render() {

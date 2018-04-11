@@ -21,7 +21,7 @@ export default class Frame1 extends React.Component {
     isActive: PropTypes.bool,
     scrollToIndex: PropTypes.number,
     data: PropTypes.array,
-    frames: PropTypes.shape({
+    actions: PropTypes.shape({
       setNextFrame: PropTypes.func,
       getNextFrame: PropTypes.func,
       replaceFrame: PropTypes.func,
@@ -33,44 +33,56 @@ export default class Frame1 extends React.Component {
   }
 
   goBack = event => {
-    this.props.frames.closeCurrentFrame()
+    this.props.actions.closeCurrentFrame()
   }
 
   loadUser = (index, user) => {
-    this.props.frames.setCurrentFrame({
-      ...this.props.frames.getCurrentFrame().state,
+    const {
+      actions: {setCurrentFrame, getCurrentFrame, setNextFrame}
+    } = this.props
+
+    setCurrentFrame({
+      ...getCurrentFrame().state,
       scrollToIndex: index
     })
 
-    this.props.frames.setNextFrame('User', {
+    setNextFrame('User', {
       user
     })
   }
 
   loadFilters = (index, user) => {
-    this.props.frames.setNextFrame('UsersFilters', {
+    this.props.actions.setNextFrame('UsersFilters', {
       user
     })
   }
 
   sendMessage = (index, user) => {
-    this.props.frames.setCurrentFrame({
-      ...this.props.frames.getCurrentFrame().state,
+    const {
+      actions: {setCurrentFrame, getCurrentFrame, setNextFrame}
+    } = this.props
+
+    setCurrentFrame({
+      ...getCurrentFrame().state,
       scrollToIndex: index
     })
 
-    this.props.frames.setNextFrame('Email', {
+    setNextFrame('Email', {
       user
     })
   }
 
   openMap = (index, user) => {
-    this.props.frames.setCurrentFrame({
-      ...this.props.frames.getCurrentFrame().state,
+    const {
+      actions: {setCurrentFrame, getCurrentFrame, setNextFrame}
+    } = this.props
+
+    setCurrentFrame({
+      ...getCurrentFrame().state,
       scrollToIndex: index
     })
 
-    this.props.frames.setNextFrame('Map', {
+    setNextFrame('Map', {
       user
     })
   }
@@ -90,8 +102,8 @@ export default class Frame1 extends React.Component {
   componentDidMount() {
     if (!this.props.data) {
       this.getData(data => {
-        this.props.frames.setCurrentFrame({
-          ...this.props.frames.getCurrentFrame().state,
+        this.props.actions.setCurrentFrame({
+          ...this.props.actions.getCurrentFrame().state,
           data
         })
       })
@@ -153,7 +165,7 @@ export default class Frame1 extends React.Component {
     const {data = []} = this.props
 
     const {isActive, scrollToIndex} = this.props
-    const nextFrame = this.props.frames.getNextFrame()
+    const nextFrame = this.props.actions.getNextFrame()
 
     return (
       <Frame

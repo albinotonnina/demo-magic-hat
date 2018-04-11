@@ -7,7 +7,7 @@ export default class Frame2 extends React.Component {
   static propTypes = {
     isActive: PropTypes.bool,
     user: PropTypes.object,
-    frames: PropTypes.shape({
+    actions: PropTypes.shape({
       setNextFrame: PropTypes.func,
       getNextFrame: PropTypes.func,
       replaceFrame: PropTypes.func,
@@ -17,23 +17,23 @@ export default class Frame2 extends React.Component {
   }
 
   goBack = event => {
-    this.props.frames.closeCurrentFrame()
+    this.props.actions.closeCurrentFrame()
   }
 
   sendMessage = () => {
-    this.props.frames.setNextFrame('Email', {
+    this.props.actions.setNextFrame('Email', {
       user: this.props.user
     })
   }
 
   sendSms = () => {
-    this.props.frames.setNextFrame('Sms', {
+    this.props.actions.setNextFrame('Sms', {
       user: this.props.user
     })
   }
 
   openMap = () => {
-    this.props.frames.setNextFrame('Map', {
+    this.props.actions.setNextFrame('Map', {
       user: this.props.user
     })
   }

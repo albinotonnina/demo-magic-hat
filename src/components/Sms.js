@@ -9,7 +9,7 @@ export default class Frame3 extends React.Component {
   static propTypes = {
     isActive: PropTypes.bool,
     user: PropTypes.object,
-    frames: PropTypes.shape({
+    actions: PropTypes.shape({
       setNextFrame: PropTypes.func,
       getNextFrame: PropTypes.func,
       setFrame: PropTypes.func,
@@ -19,7 +19,7 @@ export default class Frame3 extends React.Component {
   }
 
   goBack = event => {
-    this.props.frames.closeCurrentFrame()
+    this.props.actions.closeCurrentFrame()
   }
 
   handleSubmit = e => {
