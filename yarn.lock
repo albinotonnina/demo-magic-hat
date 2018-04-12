@@ -6663,9 +6663,9 @@ react-lazy-load@^3.0.12:
     lodash.throttle "^4.0.0"
     prop-types "^15.5.8"
 
-react-magic-hat@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/react-magic-hat/-/react-magic-hat-1.0.0.tgz#0405e67487ae86c36f312d27ccda06a4ca1a8d96"
+react-magic-hat@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/react-magic-hat/-/react-magic-hat-1.0.2.tgz#be5b9a8fe6e31b3dd0171e6f6c27debc1aada39c"
 
 react-portal@^4.1.3:
   version "4.1.3"
